@@ -16,7 +16,6 @@ fun main() {
     val age:Int ? = null
     val number : Nothing? = null    // Nothing?
     val sum = null     // Nothing?
-    val eren : Int = 5;
 
 
     //---------------------------------------------------------------------------------------------------------------
