@@ -3,7 +3,11 @@ package basics.loop
 // Code with ♥️
 // Created by Oguzhan OZGOKCE 
 
-// Baslangic noktasi
+/**
+ * https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-array/
+ * burada arraylerin fonksiyonlarına bakabilirsiniz.
+ */
+
 fun main() {
 
     /**
@@ -116,8 +120,59 @@ fun main() {
 
     /*----------------------------------------------------------------------------------------------*/
 
+    /**
+     * vararg kelimesi ile istediğimz sayıda parametreyi kabul edebiliyoruz.
+     * Eğer vararg'a denk gelecek şekilde bir array kullanmak istiyorsak "spread" operatörü kullanılır.
+     * Spread operatörü  verdiğiniz array'in elemanlarını her birbirine bir veriable olacak şekilde parametre olarak gönderir.
+     */
+
+    val lettersArray = arrayOf("A", "B", "C", "D", "E")
+    printAllStrings("a", "b", "c", "d", "e")
+
+
+    /*----------------------------------------------------------------------------------------------*/
+
+    /**
+     * arrayleri karşılaştırmak için == kullanılmaz.  == operatörü o arreylerin referanslarını karşılaştırır.
+     * .contentEquals() fonksiyonu kullanılır.
+     */
+
+    val arr1 = intArrayOf(1, 2, 3, 4, 5)
+    val arr2 = intArrayOf(1, 2, 3, 4, 5)
+
+    println(arr1 == arr2) // false
+    println(arr1.contentEquals(arr2)) // true
+
+    val arr3 = arr1
+    val arr4 = arr1
+
+    println(arr3 == arr4) // true
+    println(arr3.contentEquals(arr4)) // true
+
+
+    /*----------------------------------------------------------------------------------------------*/
+
+    /**
+     * Array'leri List' e ve Set'e dönüştürebiliyoruz.
+     */
+
+    val sampleArray = arrayOf(1, 2, 3, 4, 4, 5)
+    println(sampleArray.toSet()) // [1, 2, 3, 4, 5]
+    println(sampleArray.toList())
+
+    val cities = arrayOf("Ankara" to "Istanbul" to "Izmir" to "Bursa" to "Antalya")
+    println(cities.toMap()) // {Ankara=Istanbul, Izmir=Bursa, Antalya=null}
+
+    /*----------------------------------------------------------------------------------------------*/
 
 
 
+}
+
+fun printAllStrings(vararg strings: String) {
+    for (string in strings) {
+        print("$string ")
+    }
+       println()
 }
 
