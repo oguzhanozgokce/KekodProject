@@ -3,7 +3,7 @@ package basics.loop
 // Code with ♥️
 // Created by Oguzhan OZGOKCE
 
-fun main(){
+fun main() {
 
     /**
      *          Type    |       Size(Bits)        |       Min Value         |       Max Value
@@ -33,23 +33,23 @@ fun main(){
      *
      */
 
-    val minByte : Byte = Byte.MIN_VALUE
-    val maxByte : Byte = Byte.MAX_VALUE
+    val minByte: Byte = Byte.MIN_VALUE
+    val maxByte: Byte = Byte.MAX_VALUE
 
-    val minShort : Short = Short.MIN_VALUE
-    val maxShort : Short = Short.MAX_VALUE
+    val minShort: Short = Short.MIN_VALUE
+    val maxShort: Short = Short.MAX_VALUE
 
-    val minInt : Int = Int.MIN_VALUE
-    val maxInt : Int = Int.MAX_VALUE
+    val minInt: Int = Int.MIN_VALUE
+    val maxInt: Int = Int.MAX_VALUE
 
-    val minLong : Long = Long.MIN_VALUE
-    val maxLong : Long = Long.MAX_VALUE
+    val minLong: Long = Long.MIN_VALUE
+    val maxLong: Long = Long.MAX_VALUE
 
-    val minFloat : Float = Float.MIN_VALUE
-    val maxFloat : Float = Float.MAX_VALUE
+    val minFloat: Float = Float.MIN_VALUE
+    val maxFloat: Float = Float.MAX_VALUE
 
-    val minDouble : Double = Double.MIN_VALUE
-    val maxDouble : Double = Double.MAX_VALUE
+    val minDouble: Double = Double.MIN_VALUE
+    val maxDouble: Double = Double.MAX_VALUE
 
     println("minByte: $minByte")
     println("maxByte: $maxByte")
@@ -90,22 +90,22 @@ fun main(){
     //---------------------------------------------------------------------------------------------------------------
 
     /**
-     * Boxed    : Degiskenin obje referansı olarak tutulmasidir
-     * Unboxed  : Degiskenin primitive tip olarak tutulmasidir
+     * Boxed    : Degiskenin obje referansı olarak tutulmasidir  : Primitive tip
+     * Unboxed  : Degiskenin primitive tip olarak tutulmasidir  : Referans tip
      * ===      : Memory'deki Referans karsilastirmasi yapar
      * ==       : Deger karsilastirmasi yapar
      */
 
-    val a : Int = 100
-    val boxedNumber : Int? = a
-    val anotherBoxedNumber : Int? = a
+    val a: Int = 100
+    val boxedNumber: Int = a
+    val anotherBoxedNumber: Int = a
     println("boxedNumber === anotherBoxedNumber: ${boxedNumber === anotherBoxedNumber}")   // true
 
     // True cikmasinin sebebi: 100 degeri -128 ile 127 (Byte aralıgı) arasinda oldugu icin ayni referansi tutarlar.
 
-    val b : Int = 10000
-    val boxedNumber2 : Int? = b
-    val anotherBoxedNumber2 : Int? = b
+    val b: Int = 10000
+    val boxedNumber2: Int = b
+    val anotherBoxedNumber2: Int = b
     println("boxedNumber2 === anotherBoxedNumber2: ${boxedNumber2 === anotherBoxedNumber2}")   // false
 
     /**
@@ -115,31 +115,12 @@ fun main(){
      * Kotlinde primitive tipdeki bir degisken nullable yapılır ve === ile kontrol edilirse, nasıl bir sonuc alınır?
      */
 
+    val age: Int? = 100
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /**
+     * // age Steak'te tutulur - 100 degeri heapte tutulur.
+     * // yani degisken null olursa steak' de ismi tutulur, heap'de boş bir alan olur.
+     * primitive degisken kendisi ve degeri stack'te tutulur.
+     * referans degiskeni kendisi stack'te, degeri heap'te tutulur.
+     */
 }
