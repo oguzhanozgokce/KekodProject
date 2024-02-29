@@ -1,4 +1,4 @@
-package basics.loop
+package basics
 
 // Code with ♥️
 // Created by Oguzhan OZGOKC

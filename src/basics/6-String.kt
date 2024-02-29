@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package basics.loop
+package basics
 
 import java.util.*
 

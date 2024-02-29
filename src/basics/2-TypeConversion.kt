@@ -1,4 +1,4 @@
-package basics.loop
+package basics
 
 // Code with ♥️
 // Created by Oguzhan OZGOKCE |
@@ -15,7 +15,6 @@ fun main(){
     /**
      * Tip donusumu icin kullanilan fonksiyonlar:
      * toByte(), toShort(), toInt(), toLong(), toFloat(), toDouble(), toChar()
-     *
      * Değer aralığı küçük olan tipler büyük olan tiplere sorunsuz bir şekilde değiştirilebilir.
      */
 
