@@ -80,4 +80,20 @@ fun main() {
             continue
         println(i)
     }
+
+    returnLabel@ for (i in 1..10){
+        for (j in 1..10){
+            if (i == 5 && j == 5)
+                continue@returnLabel
+            println("$i - $j")
+        }
+    }
+
+    returnLabel@ for (i in 1..10){
+        for (j in 1..10){
+            if (i == 5 && j == 5)
+                break@returnLabel
+            println("$i - $j")
+        }
+    }
 }
