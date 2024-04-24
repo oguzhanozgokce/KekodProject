@@ -10,6 +10,11 @@ package classes
  * Internal: Sadece tanımlandığı modül içerisinden erişilebilir.
  *
  */
+
+/**
+ * Atomic commit : Yaptığın işe denk gelen bir problem vardı ve çözdün ve onu commit ettin.
+ */
+
 //constructor
 class Turtle(
     var feetCount: Int = 4,
