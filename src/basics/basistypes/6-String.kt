@@ -1,6 +1,6 @@
 @file:Suppress("DEPRECATION")
 
-package basics
+package basics.basistypes
 
 import java.util.*
 

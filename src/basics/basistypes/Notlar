@@ -1,0 +1,161 @@
+Kotlin Notları
+Kotlinde 3 tür type vardır.
+1 - Primitive Types (Byte, Short, Int, Long, Float, Double, Char, Boolean)
+    Steack memoryde tutulurlar.
+2 - Referance Types (Class,object,Array)
+    Heap memoryde tutulurlar.
+3-  Nullable Types (Null değer alabilirler)
+    Referance tiptir ve null değer alabilirler.
+
+--------------------------------
+Kotlinde tüm değişkenler bir class'dır
+Kotlinde her sey birer nesnedir. (Yani burada ki class tipindeki değişkenler runtime zamanın da java da ki gerçek karşılıklarına dönüşürler.)
+--------------------------------
+
+Kotlinde değişken tanımlama
+1- var (değişkenin değeri değiştirilebilir) (mutable)
+2- val (değişkenin değeri değiştirilemez) (read-only)
+    val degiskenlere genelde immutable deriz,fakat bu yanlis bir ifadedir.Aslinda read-Only degiskenlerdir.
+    Read-only demek değeri okunabilen,ilk deger atamasindan sonra tekrar deger atanamaz(set edilemez) demektir.
+
+
+--------------------------------
+var -> val dönüşümü
+Bir değişkenin önüne var olarak tanımlayıp, bu değişkenin önündeki var kelimesini değiştirmeden , nasıl val yaparız?
+    Bunun cozumu ise set fonksiyonunu private yapmamizdir.Bu durumda,degisken var olsada readonly bir hale donusur.
+
+--------------------------------
+Type Inference:
+Degiskenin tipini belirtmeden, degiskenin degerine gore IDE'nin  tipini belirlemesidir.
+
+--------------------------------
+
+
+-------NUMBERS-------
+
+Degiskene deger atamasi yapilirken,maksimum performans icin dogru degisken tipini kullanmak onemlidir.
+ - Type Inference sirasinda eger sayi Int ifadeden buyuk degilse,tipi default olarak Int set edilir.
+ - Type Inference sirasinda eger sayi Int ifadeden buyık ise,tipi default olarak Long set edilir.
+
+--------------------------------
+* Long      degiskeni tanımlarken sonuna "L" eklenir.
+* Float     degiskeni tanımlarken sonuna "F"  ve  "f"  eklenir.
+Number değişken tanımı yapılırken underscrore "_" kullanilabilir.
+
+--------------------------------
+Boxed ve Unboxed
+- Boxed: Değişkenin obje referansı olarak tutulmasıdır: Primitive tip
+- Unboxed: Değişkenin primitive tip olarak tutulmasıdır: Referans tip
+  ===: Memory'deki Referans karşılaştırması yapar
+  ==: Değer karşılaştırması yapar
+Byte aralığında ki değerlerde == ve === aynı sonucu verir. Çünkü memory'de(Stack'de) aynı referansı tutarlar.
+--------------------------------
+
+Stack ve Heap memory
+- Stack memory: Değişkenlerin değerlerinin tutulduğu bellek alanıdır.
+- Heap memory: Objelerin tutulduğu bellek alanıdır.
++ Biz bir primitive(unboxed) değişken oluşturduğumuz zaman,hem değişkenin kendisi hem de değeri için stackde yer ayrılır.
++ Bu ikisi toplamda bir Int kadar yer kaplar.
+
+- Eğer referans tipli bir değişkenle çalışıyorsak,o değişkenin ismi stackde tutulur,değeri heap'de tutulur.
+- Örneğin val age : Int? yapıp herhangi bir değer atarsak,age'in kendisi stackde tutulur içerdiği değer ise heapde tutulur.
+- Eğer bu değişkene null değerini verirsek,heapde kullandığı alan boşalır fakat stackde değişkenin ismi için yer kaplanmaya devam edilir.
+- Değişkenin kendisi için bir alan tutulur fakat değeri için bir alan tutulmuyor anlamına gelir.
+
+--------------------------------
+
+----Unsinged Numbers----
+Kotlinde İşaretsiz Sayılar (Unsigned Numbers)
+Bu veri türleri, negatif değerler yerine 0 ve daha büyük tam sayıları temsil etmek için kullanılır.
+- UByte
+- UShort..
+
+--------------------------------
+
+----Bitwise Operators----
+- and : ve
+- or : veya
+- xor : eşit değilse
+- inv : tersi
+
+--------------------------------
+
+--------Boolean--------
+- Boolean değişkenler sadece true ve false değerlerini alabilir.
+- Nullable versiyonlari null deger alir.
+- 8 bit yer kaplar.
+- Boolean degerinin true olmasini kontrol ettirmek icin == true seklinde bir yazima ihtiyac yoktur. Fakat null deger alabilen değişkenlerde bu kontrol yapılmalıdır.
+
+--------------------------------
+
+--------Characters--------
+16 bit yer kaplarlar.
+Tek tirnaklar arasina harf,sayi,escape char ya da unciode yazarak kullanılır.
+Çift tırnak içerisine yazarsak String olur,Char olmaz.
+
+Butun degiskenler null olabilir,burada da bu degiskeni null yapar isek arka planda class olarak tutulur.Referans tipli,boxed degiskene doner.
+Nullable olmayanlar ise optimizasyonlarla duz char degiskenine doner.
+
+escape char: \n,\t,\b,\r,\',\",\\
+unicode: \uFFFF
+
+Number deger alan bir char degiskeni,Int'e cevirirken,gercek sayisal degerini gormeyiz.
+Alacagi ve bizim de gorecegimiz deger,ASCII tablosundaki o sayisal degerin karsiligi(decimal degeri) olacaktir.
+
+--------------------------------
+--------Arrays--------
+Aynı türden  ya da belirtililen türün alt türlerinden oluşan veri gruplarıdır.
+En sık kullanılan versiyonları Object-Type Array ve Primitive-Type Array'dir.
+Array classindan miras alacak sekilde arrayler olusturuyorsak,bunlar referans tipli arraylar olur.
+Eğer primitive tipleri Object-Type Array olarak kullanırsanız Boxed kullanım yapmış olursunuz.
+Bu da performansa etki eder.Eğer sadece primitivlerden oluşan arrayler oluşturcaksanız,
+bu durumda Primitive Type Arrayler kullanmalıyız.
+
+Genel olarak elimizde kümeleyebilecegimiz veri grupları varsa ve bunlari listelemek,goruntulemek istiyorsak,ya da üzerlerinde döngü döndürme,birşey arama gib durumlarda arrayleri kullanabiliriz.
+arrayof(ayni tip degerler) seklinde tanimlanabilir.
+arrayOf<Any>(farkli tip degerler) seklinde tanimlanabilir.
+arrayOfNulls<Type>(size) ise verilen boyut kadar null deger iceren bir dizi tanimlanabilir.
+emptyArray() bos array tanimlar.
+
+Arrayler sabit büyüklüktedir. Arrey'lere ekleme ve çıkarma yapmak aynı String'lerde olduğu gibi memory'de yeni bir Array oluşturulmasına neden olur.
+* ByteArray, ShortArray, IntArray, LongArray, FloatArray, DoubleArray, BooleanArray, CharArray gibi primitive tiplerin Array versiyonlarıdır.
+.toTypedArray() fonksiyonu ile Object-Type bir array  Primitive-Type array'e dönüştürülebilir.
+
+val ile tanimlanmis bi arrayin herhangi bir indexindeki degeri degistirebiliriz.
+val indexdeki degerlerin degismesine karısmaz
+Anca ilgili bir diziyi baska bir diziye esitleyemeyiz.
+Bunun icin tanimlamayi var ile degistirmemiz gerekir.
+Arrayler mutable'dir,icerisindeki indexlerdeki degerler degisebilir.
+
+Ayni zamanda array'ler üst classlari yerine atanamazlar.(invariant)
+
+vararg kelimesi ile istedigimiz sayida parametreyi kabul edebiliriz.
+Eger vararg'a denk gelecek sekilde bir array kullanmak istiyorsak,"spread" "*" operatoru kullaniriz.
+
+Array'leri karşılaştırırken == operatorunu kullanamayiz.== operatoru o array'lerin referans objectlerini karşılaştırır.
+ontentEquals ya da contentDeepEquals kullanmamiz gerekir.
+
+--------------------------------
+--------String--------
+
+Yaklasik olarak her karakter basina 2 byte yer kaplar. UTF-16 encoding kullanır.
+
+Stringler immutabledir.Bir string ilk deger atamasi yapildiktan sonra degerini degistiremez ya da yeni bir deger set edemez.
+String uzerinde yapacagimiz tum islemler bize yeni bir string object'i donecektir.
+String'in ilk hali degismeyecektir.Bu sadece stringlerde boyledir.Diger veri tiplerinde boyle degildir.
+
+     * Primitive tipler referans tiplere gore daha hizli calisir bunu biliyoruz dolayisiyla bunlar stackde kalacaktir.
+     * Fakat stringler stackde degiskenin ismini tutar,heap'de degeri yer alir.
+     * Ama biz string'in degerini degistirdigimizde ,degiskenin yeni degeri icin heapde ayri bir alan olusturulur,
+     * Bizim degiskenimiz o yeni degeri isaret eder.
+     * İlk deger degismedigi icin memoryde hala kaldigi icin bu durumda string degiskenler immutabledir.
+     * Tabii ki var oldugu durumda yeni bir deger alabilir fakat ilk deger hala memoryde kaldigi icin immutabledir.
+     * Garbage collector belli zamanlarda heap'i gezer.İsaret edilmeyen bir value varsa bu memoryden komple silinir.
+
+     Degiskenin degerine erismek icin $ isaretini kullanabiliriz. Buna String template denir.
+     3 tane cift tirnak kullanarak raw string(multiline string) olusturulabilir.
+
+     * %s: String icin
+     * %d: Tam sayi,integer icin.
+     * %f: Kayan noktali sayi(float,double) icin
+     * %n: Yeni bir satira gecmek icin (platform bagimsiz)

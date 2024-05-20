@@ -1,4 +1,4 @@
-package basics
+package basics.basistypes
 
 // Code with ♥️
 // Created by Oguzhan OZGOKCE
@@ -124,3 +124,12 @@ fun main() {
      * referans degiskeni kendisi stack'te, degeri heap'te tutulur.
      */
 }
+/*
+-----------------------------------------------------------------------------------------------------------------------
+Kotlinde kabaca 3 tipli degisken vardir:
+1. Primitive Type: Stack'te tutulur.
+2. Referans Type: Heap'te tutulur.
+3. Nullable Type: Referans Type'dir. Null deger alabilir.
+
+
+ */

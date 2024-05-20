@@ -1,4 +1,4 @@
-package basics
+package basics.basistypes
 
 // Code with ♥️
 // Created by Oguzhan OZGOKCE 
